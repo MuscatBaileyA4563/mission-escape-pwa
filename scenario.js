@@ -2,6 +2,7 @@
   "use strict";
 
   const STATE_KEY = "missionEscapeStateV1";
+  let pendingRouteButton = null;
 
   const scenarios = {
     A: {
@@ -89,33 +90,27 @@
     return "MISSION START";
   }
 
-  function enterRoute(routeKey) {
-    const current = readState();
+  function openGameDirectly(routeKey, dialog) {
+    const button = pendingRouteButton && pendingRouteButton.isConnected
+      ? pendingRouteButton
+      : document.querySelector(`[data-route="${routeKey}"]`);
 
-    if (current?.route && current.route !== routeKey && !current.completed) {
-      const ok = confirm("別ルートへ変更すると現在の進行状況をリセットします。変更しますか？");
-      if (!ok) return false;
+    if (!button) {
+      alert("ルート画面を再読み込みして、もう一度お試しください。");
+      return;
     }
 
-    const nextState = current?.route === routeKey
-      ? current
-      : {
-          route: routeKey,
-          stageIndex: 0,
-          phase: "challenge",
-          fragments: [],
-          completed: false
-        };
+    document.removeEventListener("click", interceptRouteClick, true);
+    dialog.close();
 
-    localStorage.setItem(STATE_KEY, JSON.stringify(nextState));
-
-    const nextUrl = new URL(location.href);
-    nextUrl.search = "";
-    nextUrl.hash = "";
-    nextUrl.searchParams.set("play", routeKey);
-    nextUrl.searchParams.set("t", Date.now().toString(36));
-    location.href = nextUrl.toString();
-    return true;
+    try {
+      button.click();
+    } finally {
+      pendingRouteButton = null;
+      setTimeout(() => {
+        document.addEventListener("click", interceptRouteClick, true);
+      }, 0);
+    }
   }
 
   function ensureDialog() {
@@ -153,15 +148,16 @@
     dialog.querySelector("#scenarioStart").addEventListener("click", () => {
       const routeKey = dialog.dataset.route;
       if (!routeKey || !scenarios[routeKey]) return;
-      enterRoute(routeKey);
+      openGameDirectly(routeKey, dialog);
     });
     return dialog;
   }
 
-  function showScenario(routeKey) {
+  function showScenario(routeKey, sourceButton) {
     const scenario = scenarios[routeKey];
     if (!scenario) return;
 
+    pendingRouteButton = sourceButton;
     const dialog = ensureDialog();
     dialog.dataset.route = routeKey;
     dialog.querySelector("#scenarioRoute").textContent = scenario.route;
@@ -176,20 +172,7 @@
     dialog.showModal();
   }
 
-  const params = new URLSearchParams(location.search);
-  const playRoute = params.get("play");
-  const bypassScenario = playRoute && scenarios[playRoute];
-
-  if (bypassScenario) {
-    requestAnimationFrame(() => {
-      const cleanUrl = new URL(location.href);
-      cleanUrl.searchParams.delete("play");
-      cleanUrl.searchParams.delete("t");
-      history.replaceState({}, "", cleanUrl.pathname + cleanUrl.search + cleanUrl.hash);
-    });
-  }
-
-  document.addEventListener("click", event => {
+  function interceptRouteClick(event) {
     const button = event.target.closest?.("[data-route]");
     if (!button) return;
 
@@ -199,6 +182,8 @@
     event.preventDefault();
     event.stopPropagation();
     event.stopImmediatePropagation();
-    showScenario(routeKey);
-  }, true);
+    showScenario(routeKey, button);
+  }
+
+  document.addEventListener("click", interceptRouteClick, true);
 })();
