@@ -1,0 +1,108 @@
+:root{
+  color-scheme:dark;
+  --bg:#070b12;
+  --panel:#111827;
+  --panel2:#182235;
+  --text:#f8fafc;
+  --muted:#9ca3af;
+  --line:#334155;
+  --accent:#22d3ee;
+  --accent2:#0ea5e9;
+  --ok:#22c55e;
+  --bad:#ef4444;
+  --warn:#f59e0b;
+  --radius:18px;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{
+  margin:0; min-height:100%; color:var(--text); background:
+  radial-gradient(circle at 50% -10%,#123044 0,transparent 34rem),
+  linear-gradient(180deg,#07101a,#070b12 48%);
+}
+button,input{font:inherit}
+button{touch-action:manipulation}
+.app-shell{width:min(100%,760px);margin:0 auto;padding:env(safe-area-inset-top) 16px calc(32px + env(safe-area-inset-bottom));}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0 14px;position:sticky;top:0;background:linear-gradient(180deg,#070b12 72%,transparent);z-index:5}
+.eyebrow{margin:0 0 4px;color:var(--accent);font-weight:800;letter-spacing:.16em;font-size:.72rem}
+.topbar-title{font-size:1.05rem;font-weight:800}
+.icon-button{width:46px;height:46px;border:1px solid var(--line);border-radius:14px;background:#101827;color:var(--text);font-size:1.2rem}
+.hero{padding:28px 0 18px}
+.hero h1,.boot-card h1{font-size:clamp(2rem,9vw,4rem);line-height:.95;margin:8px 0 14px;letter-spacing:-.05em}
+.hero p{color:var(--muted);line-height:1.75}
+.boot-card{margin-top:80px;padding:28px;border:1px solid var(--line);background:rgba(17,24,39,.75);border-radius:var(--radius)}
+.route-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.route-card{
+  width:100%;text-align:left;padding:18px;border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(135deg,#111827,#152238);color:var(--text);min-height:116px
+}
+.route-card strong{display:block;font-size:1.35rem;margin-bottom:4px}
+.route-card span{color:var(--muted);line-height:1.5}
+.route-card .route-code{display:inline-block;color:var(--accent);font-weight:900;letter-spacing:.12em;margin-bottom:8px}
+.route-card:active{transform:scale(.99)}
+.status-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0 16px}
+.stat{padding:12px;border:1px solid var(--line);background:#0e1624;border-radius:14px;text-align:center}
+.stat b{display:block;font-size:1.15rem}
+.stat span{font-size:.72rem;color:var(--muted)}
+.progress{height:8px;border-radius:99px;background:#1f2937;overflow:hidden;margin:8px 0 18px}
+.progress>div{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));transition:width .25s ease}
+.mission-card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(24,34,53,.94),rgba(14,22,36,.96));border-radius:var(--radius);overflow:hidden}
+.mission-head{padding:18px 18px 10px;border-bottom:1px solid rgba(51,65,85,.65)}
+.stage-label{color:var(--accent);font-weight:900;letter-spacing:.12em;font-size:.75rem}
+.mission-head h1{font-size:1.6rem;margin:7px 0 3px}
+.mission-body{padding:18px}
+.question{font-size:1.03rem;line-height:1.8;margin:0 0 16px;white-space:pre-line}
+.choice-list{display:grid;gap:10px}
+.choice{
+  width:100%;min-height:58px;padding:13px 14px;border:1px solid var(--line);border-radius:14px;background:#101a2a;color:var(--text);
+  display:grid;grid-template-columns:38px 1fr;align-items:center;text-align:left;gap:8px
+}
+.choice-letter{display:grid;place-items:center;width:32px;height:32px;border:1px solid #475569;border-radius:10px;font-weight:900;color:var(--accent)}
+.choice.selected{border-color:var(--accent);background:#102638}
+.primary-button,.secondary-button,.danger-button,.ghost-button{
+  width:100%;min-height:52px;border-radius:14px;padding:12px 16px;font-weight:850;margin-top:10px
+}
+.primary-button{border:0;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#04111b}
+.secondary-button{border:1px solid var(--line);background:#172236;color:var(--text)}
+.danger-button{border:1px solid #7f1d1d;background:#321313;color:#fecaca}
+.ghost-button{border:0;background:transparent;color:var(--muted)}
+.primary-button:disabled{opacity:.45}
+.callout{border:1px solid var(--line);border-radius:14px;padding:15px;margin-top:14px;background:#0d1725}
+.callout.ok{border-color:#166534;background:#0b2116}
+.callout.warn{border-color:#92400e;background:#28190a}
+.callout.bad{border-color:#7f1d1d;background:#2a1010}
+.callout h3{margin:0 0 6px;font-size:1rem}
+.callout p{margin:0;color:#d1d5db;line-height:1.65}
+.booth-name{font-size:1.3rem;font-weight:900;margin:6px 0 0}
+.qr-instruction{display:flex;align-items:flex-start;gap:12px;margin-top:15px;padding:14px;border-radius:14px;background:#0a1320;border:1px dashed #475569}
+.qr-symbol{font-size:1.7rem}
+.fragment{display:inline-flex;align-items:center;gap:10px;margin-top:12px;padding:9px 12px;border:1px solid #155e75;background:#082f49;border-radius:12px}
+.fragment b{font-size:1.25rem;color:#a5f3fc}
+.fragments{display:grid;grid-template-columns:repeat(auto-fit,minmax(86px,1fr));gap:8px;margin:14px 0}
+.fragment-card{border:1px solid var(--line);background:#0f1827;border-radius:12px;padding:10px;text-align:center}
+.fragment-card span{display:block;font-size:.7rem;color:var(--muted)}
+.fragment-card b{display:block;font-size:1.25rem;color:var(--accent);margin-top:2px}
+.code-input{
+  width:100%;min-height:56px;border:1px solid var(--line);border-radius:14px;background:#08111d;color:var(--text);
+  padding:12px 14px;text-transform:uppercase;font-size:1.15rem;letter-spacing:.12em
+}
+.complete{padding:30px 18px;text-align:center}
+.complete-mark{font-size:4rem;margin:0 0 8px}
+.complete h1{font-size:2rem;margin:4px 0 8px}
+.complete .big{font-size:clamp(2.2rem,12vw,4rem);font-weight:1000;letter-spacing:-.05em;color:#86efac}
+.note{font-size:.82rem;color:var(--muted);line-height:1.65}
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;
+  width:min(calc(100% - 32px),600px);padding:13px 15px;border:1px solid var(--line);border-radius:14px;background:#111827;color:var(--text)}
+dialog{border:0;background:transparent;padding:16px;width:min(100%,520px)}
+dialog::backdrop{background:rgba(0,0,0,.72)}
+.dialog-card{background:#111827;border:1px solid var(--line);border-radius:18px;padding:18px}
+.dialog-card h2{margin:0 0 8px}
+@media (min-width:600px){
+  .route-grid{grid-template-columns:1fr 1fr}
+  .app-shell{padding-left:24px;padding-right:24px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .mission-card,.route-card{animation:fadeUp .22s ease both}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+}

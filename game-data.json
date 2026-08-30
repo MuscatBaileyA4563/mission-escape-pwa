@@ -1,0 +1,713 @@
+{
+  "title": "MISSION ESCAPE",
+  "eventTitle": "企業展示ブースを巡る脱出ゲーム",
+  "version": 1,
+  "routes": {
+    "A": {
+      "name": "ROUTE A",
+      "subtitle": "企業探索ミッション",
+      "theme": "intel",
+      "intro": "企業名を導く13の謎。答えだと思う企業ブースへ移動し、設置されたQRを読み込め。",
+      "finalCode": "CSCE16MISSION",
+      "stages": [
+        {
+          "number": 1,
+          "type": "clue",
+          "title": "企業探索01",
+          "question": "健康（HEALTH）、診断（DIAGNOSTICS）、ドイツ発祥の医療企業（SIEMENS）。この3つの言葉から導かれる企業ブースを探せ。",
+          "booth": "シーメンスヘルスケア・ダイアグノスティクス株式会社",
+          "qrToken": "A-SIEMENS-7Q2K",
+          "fragment": "M",
+          "slot": 7
+        },
+        {
+          "number": 2,
+          "type": "clue",
+          "title": "企業探索02",
+          "question": "T、M、S、E を並び替えて、カタカナ3文字の企業名を導け。その企業ブースへ向かえ。",
+          "booth": "株式会社メッツ",
+          "qrToken": "A-METZ-4H8P",
+          "fragment": "C",
+          "slot": 1
+        },
+        {
+          "number": 3,
+          "type": "clue",
+          "title": "企業探索03",
+          "question": "カテーテル、静脈留置針、血液透析、血管内治療。これらと深い関わりがあり、医療を意味する「MEDI」が入る企業を探せ。",
+          "booth": "メディキット株式会社",
+          "qrToken": "A-MEDIKIT-9M3R",
+          "fragment": "O",
+          "slot": 12
+        },
+        {
+          "number": 4,
+          "type": "clue",
+          "title": "企業探索04",
+          "question": "「愛」が2文字入っているように読める企業名を探せ。",
+          "booth": "アイ・エム・アイ株式会社",
+          "qrToken": "A-IMI-2V7N",
+          "fragment": "E",
+          "slot": 4
+        },
+        {
+          "number": 5,
+          "type": "clue",
+          "title": "企業探索05",
+          "question": "「マリン」から始まる企業名のブースへ向かえ。",
+          "booth": "マリンクロットファーマ株式会社",
+          "qrToken": "A-MARIN-6C4X",
+          "fragment": "S",
+          "slot": 9
+        },
+        {
+          "number": 6,
+          "type": "clue",
+          "title": "企業探索06",
+          "question": "優秀な体温計の国産化をめざして設立され、ドイツ語 THERMOMETER（体温計）が社名の由来となった企業を探せ。",
+          "booth": "テルモ株式会社",
+          "qrToken": "A-TERUMO-5B9J",
+          "fragment": "S",
+          "slot": 2
+        },
+        {
+          "number": 7,
+          "type": "clue",
+          "title": "企業探索07",
+          "question": "ドイツ生まれの医療・安全技術メーカー。人工呼吸器、麻酔器、患者モニタリング、保育器などを扱い、代表的な人工呼吸器シリーズに Evita がある企業を探せ。",
+          "booth": "ドレーゲルジャパン株式会社",
+          "qrToken": "A-DRAEGER-8T2D",
+          "fragment": "N",
+          "slot": 13
+        },
+        {
+          "number": 8,
+          "type": "clue",
+          "title": "企業探索08",
+          "question": "1950年代に世界で最初の血液ガス分析装置を発表した歴史を持ち、ABLシリーズで知られる企業を探せ。",
+          "booth": "ラジオメーター株式会社",
+          "qrToken": "A-RADIOMETER-3K7W",
+          "fragment": "1",
+          "slot": 5
+        },
+        {
+          "number": 9,
+          "type": "clue",
+          "title": "企業探索09",
+          "question": "X線CT、MRI、超音波などを手がける世界的なヘルスケア企業のブースを探せ。",
+          "booth": "GEヘルスケア・ジャパン株式会社",
+          "qrToken": "A-GEHC-1F6S",
+          "fragment": "S",
+          "slot": 10
+        },
+        {
+          "number": 10,
+          "type": "clue",
+          "title": "企業探索10",
+          "question": "謎1：28番元素の元素記号。謎2：カリウム・カリウム・ヨウ素の元素記号を順に。謎3：SOCIAL / SOLAR / SOURCE に共通する冒頭2文字。3つの答えを左からつなぎ、できるアルファベット7文字の企業を探せ。",
+          "booth": "日機装株式会社",
+          "qrToken": "A-NIKKISO-0L5A",
+          "fragment": "C",
+          "slot": 3
+        },
+        {
+          "number": 11,
+          "type": "clue",
+          "title": "企業探索11",
+          "question": "「毎回・普段・永遠・いつも」に共通する漢字1文字と、「X線・顕微鏡・検査装置・画像診断」に共通する漢字1文字。この漢字2文字からなる企業を探せ。",
+          "booth": "株式会社常光",
+          "qrToken": "A-JOKOH-7Y3E",
+          "fragment": "I",
+          "slot": 8
+        },
+        {
+          "number": 12,
+          "type": "clue",
+          "title": "企業探索12",
+          "question": "手術室内の医用映像を記録・管理し、院内へライブ配信する「ADMENIC」を展開している企業を探せ。",
+          "booth": "カリーナシステム株式会社",
+          "qrToken": "A-CARINA-4P1U",
+          "fragment": "6",
+          "slot": 6
+        },
+        {
+          "number": 13,
+          "type": "clue",
+          "title": "企業探索13",
+          "question": "鳥取県の企業を、経営・技術・販売など多方面から支える“企業の応援団”を探せ。",
+          "booth": "公益財団法人鳥取県産業振興機構",
+          "qrToken": "A-TORISAN-6N8Q",
+          "fragment": "I",
+          "slot": 11
+        }
+      ]
+    },
+    "B": {
+      "name": "ROUTE B",
+      "subtitle": "南海トラフ巨大地震",
+      "theme": "emergency",
+      "intro": "病院機能停止まで、あと48時間。電力・呼吸・循環・血液浄化を復旧せよ。",
+      "finalCode": "CE48HOURS!",
+      "stages": [
+        {
+          "number": 1,
+          "type": "quiz",
+          "title": "非常電源を守れ！",
+          "question": "災害発生後、非常用発電機で運転中の病院。燃料残量からあと6時間で停止する見込み。臨床工学技士として最も適切な対応はどれか。",
+          "choices": {
+            "A": "すべての人工呼吸器をバッテリー運転へ切り替える。",
+            "B": "生命維持に直結しない医療機器や不要な電力消費を制限し、非常用電源の負荷を低減する。",
+            "C": "すべての透析患者の治療を直ちに中止する。",
+            "D": "院内の照明をすべて消灯する。"
+          },
+          "answer": "B",
+          "booth": "ニプロ株式会社",
+          "qrToken": "B-NIPRO-8K2M",
+          "fragment": "O",
+          "slot": 6,
+          "explanation": ""
+        },
+        {
+          "number": 2,
+          "type": "quiz",
+          "title": "人工呼吸器を守れ！",
+          "question": "ICUの電源系統が一部停止。人工呼吸器1台が内部バッテリーで稼働中だが残量18％（約20分）。停電復旧見込みは不明。最優先で行うべき対応はどれか。",
+          "choices": {
+            "A": "人工呼吸器の設定を変更し消費電力を下げる。",
+            "B": "患者をアンビューバッグへ切り替え人工呼吸器の電源を切る。",
+            "C": "非常電源が供給されているコンセントを確認して速やかに接続し、停電継続に備えて代替手段も準備する。",
+            "D": "約20分あるため復旧まで様子を見る。"
+          },
+          "answer": "C",
+          "booth": "日本ストライカー株式会社",
+          "qrToken": "B-STRYKER-3R9V",
+          "fragment": "C",
+          "slot": 1,
+          "explanation": ""
+        },
+        {
+          "number": 3,
+          "type": "quiz",
+          "title": "透析患者を守れ！",
+          "question": "断水により本日使用できる透析液は通常の40％。患者30名が来院している。最も適切な考え方はどれか。",
+          "choices": {
+            "A": "医師と連携し、病態に応じて透析の優先順位や透析条件を調整する。",
+            "B": "到着した順番に透析を行う。",
+            "C": "全員へ通常時間透析を行う。",
+            "D": "全員翌日に延期する。"
+          },
+          "answer": "A",
+          "booth": "大正医科器械株式会社",
+          "qrToken": "B-TAISHO-5D1Q",
+          "fragment": "S",
+          "slot": 9,
+          "explanation": ""
+        },
+        {
+          "number": 4,
+          "type": "quiz",
+          "title": "輸液ポンプを守れ！",
+          "question": "病棟停電により輸液ポンプは内蔵バッテリーで動作中。非常用電源は使用可能だがコンセント数に限りがある。最も適切な対応はどれか。",
+          "choices": {
+            "A": "すべての輸液ポンプを優先して非常用電源へ接続する。",
+            "B": "バッテリー残量や薬剤の重要度を評価し、優先順位をつけて非常用電源へ接続する。",
+            "C": "バッテリー節約のため輸液速度を半分にする。",
+            "D": "バッテリーが切れるまでそのまま使用する。"
+          },
+          "answer": "B",
+          "booth": "株式会社アイビジョン",
+          "qrToken": "B-IVISION-7T4C",
+          "fragment": "8",
+          "slot": 4,
+          "explanation": ""
+        },
+        {
+          "number": 5,
+          "type": "quiz",
+          "title": "人工心肺を守れ！",
+          "question": "人工心肺は非常電源で継続中。病院全体の電力消費を抑えるため「不要な機器は停止せよ」と指示が出た。人工心肺症例で停止対象として最も適切なのはどれか。",
+          "choices": {
+            "A": "人工心肺装置本体",
+            "B": "ガスブレンダー",
+            "C": "ACT測定装置",
+            "D": "術野照明のうち使用していない補助灯"
+          },
+          "answer": "D",
+          "booth": "株式会社アスカメディカル",
+          "qrToken": "B-ASUKA-2P8H",
+          "fragment": "E",
+          "slot": 2,
+          "explanation": ""
+        },
+        {
+          "number": 6,
+          "type": "quiz",
+          "title": "酸素はあと何時間もつ？",
+          "question": "液体酸素残量30％。道路寸断で補充は見込めず、酸素消費量も通常より増えている。まず最優先で実施すべき対応はどれか。",
+          "choices": {
+            "A": "残量20％以下になるまで通常運用を続ける。",
+            "B": "酸素使用状況を把握し、医療ガス管理者・災害対策本部へ共有し、節減対策や代替供給を開始する。",
+            "C": "中央配管を停止し、すべて酸素ボンベへ切り替える。",
+            "D": "人工心肺装置への酸素供給を停止する。"
+          },
+          "answer": "B",
+          "booth": "富士フィルムメディカル株式会社",
+          "qrToken": "B-FUJIFILM-6W0N",
+          "fragment": "R",
+          "slot": 8,
+          "explanation": ""
+        },
+        {
+          "number": 7,
+          "type": "quiz",
+          "title": "消えゆく生命のサイン",
+          "question": "ICUでは8台の生体情報モニタが稼働しているが、非常用コンセントは4口。セントラルモニタも停止した。患者監視体制を維持する最も適切な対応はどれか。",
+          "choices": {
+            "A": "すべての患者監視モニタを非常用電源へ接続する。",
+            "B": "重症患者のモニタを優先して非常用電源へ接続し、その他はバッテリー駆動と定期的な直接観察を組み合わせる。",
+            "C": "すべての患者をナースステーション付近へ移動する。",
+            "D": "モニタのアラーム音をOFFにする。"
+          },
+          "answer": "B",
+          "booth": "株式会社アムコ",
+          "qrToken": "B-AMCO-9A3F",
+          "fragment": "!",
+          "slot": 10,
+          "explanation": ""
+        },
+        {
+          "number": 8,
+          "type": "quiz",
+          "title": "消えた医療機器",
+          "question": "電子カルテと医療機器管理システムが停止。人工呼吸器4台、シリンジポンプ12台、輸液ポンプ18台の追加要請。貸出台帳もなく予備機も限られる。最初に取るべき行動はどれか。",
+          "choices": {
+            "A": "各病棟から機器を一旦すべてME室へ回収する。",
+            "B": "使用中機器を現場確認し、生命維持管理装置を最優先として所在と稼働状況を把握する。",
+            "C": "メーカーへ連絡し代替機の搬送を依頼する。",
+            "D": "管理システムの復旧を待つ。"
+          },
+          "answer": "B",
+          "booth": "日本光電株式会社",
+          "qrToken": "B-NIHONKOHDEN-1J7S",
+          "fragment": "4",
+          "slot": 3,
+          "explanation": ""
+        },
+        {
+          "number": 9,
+          "type": "quiz",
+          "title": "情報が命を左右する",
+          "question": "電子カルテ、院内LAN、機器管理システムが停止。不足機器に関する未確認情報も拡散している。災害対策本部の臨床工学技士として最初の指示はどれか。",
+          "choices": {
+            "A": "各部署へ機器返却を指示しME室へ集約する。",
+            "B": "不足機器を業者へ発注し到着を待つ。",
+            "C": "災害対策本部で情報を一元化し、各部署の機器使用状況と患者情報を確認した上で優先順位を決定する。",
+            "D": "各部署の判断で必要な機器を確保してもらう。"
+          },
+          "answer": "C",
+          "booth": "株式会社サナス",
+          "qrToken": "B-SANAS-4E6L",
+          "fragment": "U",
+          "slot": 7,
+          "explanation": ""
+        },
+        {
+          "number": 10,
+          "type": "quiz",
+          "title": "最後の決断",
+          "question": "ICU：人工呼吸器12台、手術室：人工心肺1例、透析室：維持透析患者28名待機、病棟：輸液ポンプ不足、非常用発電機：燃料約8時間、断水継続、通信は院内無線のみ。CEとして最優先で行うべき対応を選べ。",
+          "choices": {
+            "A": "透析装置の復旧を最優先に行う。",
+            "B": "要請が来た順に医療機器を配置する。",
+            "C": "生命維持管理装置を使用している患者を最優先に把握し、限られた電源・医療機器・人的資源を集中配置し、災害対策本部へ継続的に情報を集約・共有する。",
+            "D": "ME室で全医療機器の点検終了後に各部署へ配備する。"
+          },
+          "answer": "C",
+          "booth": null,
+          "qrToken": null,
+          "fragment": "H",
+          "slot": 5,
+          "explanation": ""
+        }
+      ]
+    },
+    "C": {
+      "name": "ROUTE C",
+      "subtitle": "中国・四国9県の冒険",
+      "theme": "travel",
+      "intro": "鳥取・島根・岡山・広島・山口・徳島・香川・愛媛・高知。各地の謎を解き、最後の宝へ。",
+      "finalCode": "CHUSHIKOKU",
+      "stages": [
+        {
+          "number": 1,
+          "type": "quiz",
+          "title": "鳥取県｜鳥取砂丘",
+          "question": "鳥取県を代表する観光地「鳥取砂丘」。砂丘の特徴として正しいものはどれでしょう？",
+          "choices": {
+            "A": "日本最大の砂丘である",
+            "B": "日本三大砂丘の一つで、国立公園にも指定されている",
+            "C": "火山の噴火によってできた溶岩砂丘である",
+            "D": "鳥取県から島根県まで約100km続いている"
+          },
+          "answer": "B",
+          "booth": "株式会社ジェイ・エム・エス",
+          "qrToken": "C-JMS-2Q8K",
+          "fragment": "I",
+          "slot": 6,
+          "explanation": ""
+        },
+        {
+          "number": 2,
+          "type": "quiz",
+          "title": "島根県｜出雲大社",
+          "question": "出雲大社で祀られている神様は誰でしょう？",
+          "choices": {
+            "A": "天照大御神",
+            "B": "大国主大神",
+            "C": "菅原道真",
+            "D": "日本武尊"
+          },
+          "answer": "B",
+          "booth": "日東工器株式会社",
+          "qrToken": "C-NITTO-5V1M",
+          "fragment": "C",
+          "slot": 1,
+          "explanation": ""
+        },
+        {
+          "number": 3,
+          "type": "quiz",
+          "title": "岡山県｜倉敷美観地区",
+          "question": "倉敷美観地区と特に関係が深いものはどれでしょう？",
+          "choices": {
+            "A": "江戸時代からの蔵や町家",
+            "B": "明治時代の炭鉱住宅",
+            "C": "戦国時代の城下町だけが残る地域",
+            "D": "東海道五十三次の宿場町"
+          },
+          "answer": "A",
+          "booth": "株式会社レスター",
+          "qrToken": "C-RESTAR-7C4P",
+          "fragment": "K",
+          "slot": 9,
+          "explanation": ""
+        },
+        {
+          "number": 4,
+          "type": "quiz",
+          "title": "広島県｜宮島",
+          "question": "厳島神社の大鳥居が海の中に立っているように見える理由として最も適切なのはどれでしょう？",
+          "choices": {
+            "A": "海岸近くに建てられ、潮の満ち引きによって海に浮かんで見えるから",
+            "B": "鳥居の下を海水が常に循環する構造だから",
+            "C": "鳥居そのものが船で移動する仕組みだから",
+            "D": "海底から伸びる巨大な岩の上に建てられているから"
+          },
+          "answer": "A",
+          "booth": "東レメディカル株式会社",
+          "qrToken": "C-TORAY-9H3R",
+          "fragment": "S",
+          "slot": 4,
+          "explanation": ""
+        },
+        {
+          "number": 5,
+          "type": "quiz",
+          "title": "山口県｜錦帯橋",
+          "question": "錦帯橋の特徴として正しいものはどれでしょう？",
+          "choices": {
+            "A": "5連のアーチが特徴的な木造橋",
+            "B": "日本で唯一現存する吊り橋",
+            "C": "全長1kmを超える石造橋",
+            "D": "明治時代に造られた鉄橋"
+          },
+          "answer": "A",
+          "booth": "東亜ディーケーケー株式会社",
+          "qrToken": "C-TOADKK-3N6W",
+          "fragment": "H",
+          "slot": 2,
+          "explanation": ""
+        },
+        {
+          "number": 6,
+          "type": "quiz",
+          "title": "徳島県｜鳴門の渦潮",
+          "question": "鳴門海峡で巨大な渦が発生する主な理由はどれでしょう？",
+          "choices": {
+            "A": "海底火山の活動",
+            "B": "台風による海水の回転",
+            "C": "海底から温泉が大量に湧くため",
+            "D": "潮位差によって強い潮流が生じるため"
+          },
+          "answer": "D",
+          "booth": "泉工医科工業株式会社",
+          "qrToken": "C-SENKO-1T7D",
+          "fragment": "O",
+          "slot": 8,
+          "explanation": ""
+        },
+        {
+          "number": 7,
+          "type": "quiz",
+          "title": "香川県｜讃岐うどん",
+          "question": "香川県が「うどん県」として知られる理由として最も適切なのはどれでしょう？",
+          "choices": {
+            "A": "県内のすべての家庭に製麺所があるから",
+            "B": "うどんの食文化が地域に深く根付き、多くのうどん店が存在するから",
+            "C": "日本で初めてうどんが作られた県だから",
+            "D": "香川県では米が一切栽培できないから"
+          },
+          "answer": "B",
+          "booth": "株式会社京都医療設計",
+          "qrToken": "C-KYOTO-8B2Y",
+          "fragment": "U",
+          "slot": 10,
+          "explanation": ""
+        },
+        {
+          "number": 8,
+          "type": "quiz",
+          "title": "愛媛県｜道後温泉",
+          "question": "道後温泉について正しいものはどれでしょう？",
+          "choices": {
+            "A": "日本最古とされる温泉の一つである",
+            "B": "江戸時代に初めて発見された",
+            "C": "火山噴火で江戸時代に誕生した",
+            "D": "四国八十八箇所の第1番札所である"
+          },
+          "answer": "A",
+          "booth": "タキゲン製造株式会社",
+          "qrToken": "C-TAKIGEN-6F0A",
+          "fragment": "U",
+          "slot": 3,
+          "explanation": ""
+        },
+        {
+          "number": 9,
+          "type": "quiz",
+          "title": "高知県｜桂浜・坂本龍馬",
+          "question": "桂浜と特に関係が深い人物は誰でしょう？",
+          "choices": {
+            "A": "西郷隆盛",
+            "B": "伊達政宗",
+            "C": "吉田松陰",
+            "D": "坂本龍馬"
+          },
+          "answer": "D",
+          "booth": "オクト産業株式会社",
+          "qrToken": "C-OCTO-4S9J",
+          "fragment": "K",
+          "slot": 7,
+          "explanation": ""
+        },
+        {
+          "number": 10,
+          "type": "quiz",
+          "title": "鳥取県｜名探偵コナン",
+          "question": "鳥取県北栄町にある『名探偵コナン』の観光スポットとして有名な施設はどれでしょう？",
+          "choices": {
+            "A": "名探偵コナン記念館",
+            "B": "青山剛昌ふるさと館",
+            "C": "コナン探偵研究所",
+            "D": "少年探偵団ミュージアム"
+          },
+          "answer": "B",
+          "booth": null,
+          "qrToken": null,
+          "fragment": "H",
+          "slot": 5,
+          "explanation": ""
+        }
+      ]
+    },
+    "D": {
+      "name": "ROUTE D",
+      "subtitle": "高知県10の謎",
+      "theme": "kochi",
+      "intro": "方言、清流、祭り、食、歴史。高知県に仕掛けられた10の謎を突破せよ。",
+      "finalCode": "KOCHIRYOMA",
+      "stages": [
+        {
+          "number": 1,
+          "type": "quiz",
+          "title": "高知の方言",
+          "question": "高知県の方言で「こじゃんと」の意味は？",
+          "choices": {
+            "A": "ゆっくり",
+            "B": "とても・たくさん",
+            "C": "少しだけ",
+            "D": "あぶない"
+          },
+          "answer": "B",
+          "booth": "ベリフィケーションテクノロジー株式会社",
+          "qrToken": "D-VERIFY-8P3C",
+          "fragment": "R",
+          "slot": 6,
+          "explanation": ""
+        },
+        {
+          "number": 2,
+          "type": "quiz",
+          "title": "仁淀ブルー",
+          "question": "「奇跡の清流・○○ブルー」で有名な川は？",
+          "choices": {
+            "A": "四万十川",
+            "B": "仁淀川",
+            "C": "吉野川",
+            "D": "物部川"
+          },
+          "answer": "B",
+          "booth": "株式会社タカトリ",
+          "qrToken": "D-TAKATORI-1K7V",
+          "fragment": "K",
+          "slot": 1,
+          "explanation": ""
+        },
+        {
+          "number": 3,
+          "type": "quiz",
+          "title": "よさこい祭り",
+          "question": "高知のよさこい祭りは、戦後の高知で何を目的の一つとして始まった？",
+          "choices": {
+            "A": "外国人観光客の誘致",
+            "B": "農作物の豊作祈願",
+            "C": "戦後復興と市民の元気づくり",
+            "D": "坂本龍馬の生誕祝い"
+          },
+          "answer": "C",
+          "booth": "リヴァノヴァ株式会社",
+          "qrToken": "D-LIVANOVA-5M2H",
+          "fragment": "M",
+          "slot": 9,
+          "explanation": ""
+        },
+        {
+          "number": 4,
+          "type": "quiz",
+          "title": "高知の「おきゃく」",
+          "question": "高知県の観光キャッチコピーにも使われる「おきゃく」とは？",
+          "choices": {
+            "A": "宴会・飲み会",
+            "B": "観光",
+            "C": "宿泊客",
+            "D": "お土産"
+          },
+          "answer": "A",
+          "booth": "フジクリーン株式会社",
+          "qrToken": "D-FUJI-7Q4N",
+          "fragment": "H",
+          "slot": 4,
+          "explanation": ""
+        },
+        {
+          "number": 5,
+          "type": "quiz",
+          "title": "須崎・鍋焼きラーメン",
+          "question": "鍋焼きラーメンの定番の具として知られているものは？",
+          "choices": {
+            "A": "エビ・イカ・ホタテ",
+            "B": "牛肉・白菜・豆腐",
+            "C": "チャーシュー・ホウレン草・海苔",
+            "D": "ネギ・鶏肉・ちくわ・生卵"
+          },
+          "answer": "D",
+          "booth": "株式会社DRAGON AGENCY",
+          "qrToken": "D-DRAGON-9T1R",
+          "fragment": "O",
+          "slot": 2,
+          "explanation": ""
+        },
+        {
+          "number": 6,
+          "type": "quiz",
+          "title": "ジョン万次郎",
+          "question": "ジョン万次郎がアメリカで暮らすきっかけになった出来事は？",
+          "choices": {
+            "A": "坂本龍馬に誘われて密航した",
+            "B": "漂流してアメリカの捕鯨船に救助された",
+            "C": "幕府の命令で留学した",
+            "D": "貿易商としてアメリカへ渡った"
+          },
+          "answer": "B",
+          "booth": "広和計装株式会社",
+          "qrToken": "D-KOWA-2D8W",
+          "fragment": "O",
+          "slot": 8,
+          "explanation": ""
+        },
+        {
+          "number": 7,
+          "type": "quiz",
+          "title": "アンパンマン",
+          "question": "アンパンマンに登場するキャラクターは何人以上いる？",
+          "choices": {
+            "A": "約200人",
+            "B": "約800人",
+            "C": "約1,500人",
+            "D": "2,000人以上"
+          },
+          "answer": "D",
+          "booth": "株式会社タチエス H&P",
+          "qrToken": "D-TACHI-S-6F3A",
+          "fragment": "A",
+          "slot": 10,
+          "explanation": ""
+        },
+        {
+          "number": 8,
+          "type": "quiz",
+          "title": "高知の山菜",
+          "question": "特に高知県等で食べられている山菜の「虎杖」はなんと読む？",
+          "choices": {
+            "A": "いたどり",
+            "B": "こごみ",
+            "C": "よもぎ",
+            "D": "わらび"
+          },
+          "answer": "A",
+          "booth": "フクダ電子株式会社",
+          "qrToken": "D-FUKUDA-4J0S",
+          "fragment": "C",
+          "slot": 3,
+          "explanation": ""
+        },
+        {
+          "number": 9,
+          "type": "quiz",
+          "title": "高知のご当地飲料",
+          "question": "ひまわり乳業が生産する大人気の乳酸飲料は？",
+          "choices": {
+            "A": "メープル",
+            "B": "ヤクルト",
+            "C": "ミルミル",
+            "D": "リープル"
+          },
+          "answer": "D",
+          "booth": "株式会社ノーザ",
+          "qrToken": "D-NOZA-3Y9L",
+          "fragment": "Y",
+          "slot": 7,
+          "explanation": ""
+        },
+        {
+          "number": 10,
+          "type": "quiz",
+          "title": "FINAL｜「舞」",
+          "question": "「舞」で有名な高知県臨床工学技士会の会長は？",
+          "choices": {
+            "A": "清水会長",
+            "B": "近田会長",
+            "C": "松本会長",
+            "D": "岡田会長"
+          },
+          "answer": "D",
+          "booth": null,
+          "qrToken": null,
+          "fragment": "I",
+          "slot": 5,
+          "explanation": ""
+        }
+      ]
+    }
+  }
+}
