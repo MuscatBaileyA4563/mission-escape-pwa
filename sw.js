@@ -1,10 +1,11 @@
-const CACHE = "mission-escape-v2";
+const CACHE = "mission-escape-v3";
 const ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
   "./scanner.css",
   "./app.js",
+  "./scenario.js",
   "./scanner.js",
   "./game-data.json",
   "./manifest.webmanifest",
