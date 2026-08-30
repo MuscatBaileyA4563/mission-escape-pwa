@@ -98,6 +98,20 @@ dialog{border:0;background:transparent;padding:16px;width:min(100%,520px)}
 dialog::backdrop{background:rgba(0,0,0,.72)}
 .dialog-card{background:#111827;border:1px solid var(--line);border-radius:18px;padding:18px}
 .dialog-card h2{margin:0 0 8px}
+.scenario-dialog{width:min(100%,680px);max-width:680px;padding:10px;border:0;background:transparent;color:var(--text)}
+.scenario-dialog::backdrop{background:rgba(0,0,0,.88);backdrop-filter:blur(4px)}
+.scenario-sheet{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,#111827,#08111d)}
+.scenario-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 16px 12px;border-bottom:1px solid var(--line)}
+.scenario-kicker{margin:0 0 4px;color:var(--accent);font-size:.7rem;font-weight:900;letter-spacing:.16em}
+.scenario-route{font-size:.88rem;font-weight:850;color:#e5e7eb}
+.scenario-scroll{max-height:min(78vh,720px);overflow:auto;padding:20px;overscroll-behavior:contain}
+.scenario-badge{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--accent);font-size:.75rem;font-weight:850}
+.scenario-sheet h1{font-size:clamp(1.6rem,7vw,2.5rem);line-height:1.25;letter-spacing:-.035em;margin:14px 0 18px}
+.scenario-body p{margin:0 0 16px;line-height:1.9;color:#e5e7eb}
+.scenario-mission{margin-top:22px;padding:15px 16px;border-left:3px solid var(--accent);border-radius:0 12px 12px 0;background:#0b1624}
+.scenario-mission span{display:block;color:var(--accent);font-size:.7rem;font-weight:900;letter-spacing:.16em}
+.scenario-mission p{margin:6px 0 0;line-height:1.7}
+.scenario-start{margin-top:20px}
 @media (min-width:600px){
   .route-grid{grid-template-columns:1fr 1fr}
   .app-shell{padding-left:24px;padding-right:24px}
