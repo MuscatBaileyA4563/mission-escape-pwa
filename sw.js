@@ -1,4 +1,4 @@
-const CACHE = "mission-escape-v3";
+const CACHE = "mission-escape-v4";
 const ASSETS = [
   "./",
   "./index.html",
