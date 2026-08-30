@@ -1,6 +1,8 @@
 (() => {
   "use strict";
 
+  const STATE_KEY = "missionEscapeStateV1";
+
   const scenarios = {
     A: {
       route: "ROUTE A",
@@ -65,23 +67,56 @@
     }
   };
 
-  let allowRouteClick = false;
-  let sourceButton = null;
-
   function esc(value = "") {
     return String(value).replace(/[&<>"']/g, c => ({
       "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#039;"
     }[c]));
   }
 
-  function getProgressLabel(routeKey) {
+  function readState() {
     try {
-      const state = JSON.parse(localStorage.getItem("missionEscapeStateV1") || "null");
-      if (!state || state.route !== routeKey) return "MISSION START";
-      if (state.completed) return "クリア画面へ";
-      if ((state.stageIndex || 0) > 0 || state.phase === "awaitingQr") return "続きから再開";
-    } catch {}
+      return JSON.parse(localStorage.getItem(STATE_KEY) || "null");
+    } catch {
+      return null;
+    }
+  }
+
+  function getProgressLabel(routeKey) {
+    const state = readState();
+    if (!state || state.route !== routeKey) return "MISSION START";
+    if (state.completed) return "クリア画面へ";
+    if ((state.stageIndex || 0) > 0 || state.phase === "awaitingQr") return "続きから再開";
     return "MISSION START";
+  }
+
+  function enterRoute(routeKey) {
+    const current = readState();
+
+    if (current?.route && current.route !== routeKey && !current.completed) {
+      const ok = confirm("別ルートへ変更すると現在の進行状況をリセットします。変更しますか？");
+      if (!ok) return false;
+    }
+
+    let nextState;
+    if (current?.route === routeKey) {
+      nextState = current;
+    } else {
+      nextState = {
+        route: routeKey,
+        stageIndex: 0,
+        phase: "challenge",
+        fragments: [],
+        completed: false
+      };
+    }
+
+    localStorage.setItem(STATE_KEY, JSON.stringify(nextState));
+
+    const nextUrl = new URL(location.href);
+    nextUrl.search = "";
+    nextUrl.hash = "";
+    location.replace(nextUrl.toString());
+    return true;
   }
 
   function ensureDialog() {
@@ -117,23 +152,17 @@
     dialog.querySelector("#scenarioClose").addEventListener("click", () => dialog.close());
     dialog.querySelector("#scenarioCancel").addEventListener("click", () => dialog.close());
     dialog.querySelector("#scenarioStart").addEventListener("click", () => {
-      if (!sourceButton?.isConnected) {
-        dialog.close();
-        return;
-      }
-      allowRouteClick = true;
-      const button = sourceButton;
-      dialog.close();
-      button.click();
+      const routeKey = dialog.dataset.route;
+      if (!routeKey || !scenarios[routeKey]) return;
+      enterRoute(routeKey);
     });
-    dialog.addEventListener("close", () => { sourceButton = null; });
     return dialog;
   }
 
-  function showScenario(routeKey, button) {
+  function showScenario(routeKey) {
     const scenario = scenarios[routeKey];
     if (!scenario) return;
-    sourceButton = button;
+
     const dialog = ensureDialog();
     dialog.dataset.route = routeKey;
     dialog.querySelector("#scenarioRoute").textContent = scenario.route;
@@ -152,17 +181,12 @@
     const button = event.target.closest?.("[data-route]");
     if (!button) return;
 
-    if (allowRouteClick) {
-      allowRouteClick = false;
-      return;
-    }
-
     const routeKey = button.dataset.route;
     if (!scenarios[routeKey]) return;
 
     event.preventDefault();
     event.stopPropagation();
     event.stopImmediatePropagation();
-    showScenario(routeKey, button);
+    showScenario(routeKey);
   }, true);
 })();
