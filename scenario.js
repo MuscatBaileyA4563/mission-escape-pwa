@@ -97,25 +97,24 @@
       if (!ok) return false;
     }
 
-    let nextState;
-    if (current?.route === routeKey) {
-      nextState = current;
-    } else {
-      nextState = {
-        route: routeKey,
-        stageIndex: 0,
-        phase: "challenge",
-        fragments: [],
-        completed: false
-      };
-    }
+    const nextState = current?.route === routeKey
+      ? current
+      : {
+          route: routeKey,
+          stageIndex: 0,
+          phase: "challenge",
+          fragments: [],
+          completed: false
+        };
 
     localStorage.setItem(STATE_KEY, JSON.stringify(nextState));
 
     const nextUrl = new URL(location.href);
     nextUrl.search = "";
     nextUrl.hash = "";
-    location.replace(nextUrl.toString());
+    nextUrl.searchParams.set("play", routeKey);
+    nextUrl.searchParams.set("t", Date.now().toString(36));
+    location.href = nextUrl.toString();
     return true;
   }
 
@@ -175,6 +174,19 @@
     dialog.querySelector("#scenarioStart").textContent = getProgressLabel(routeKey);
     dialog.querySelector("#scenarioScroll").scrollTop = 0;
     dialog.showModal();
+  }
+
+  const params = new URLSearchParams(location.search);
+  const playRoute = params.get("play");
+  const bypassScenario = playRoute && scenarios[playRoute];
+
+  if (bypassScenario) {
+    requestAnimationFrame(() => {
+      const cleanUrl = new URL(location.href);
+      cleanUrl.searchParams.delete("play");
+      cleanUrl.searchParams.delete("t");
+      history.replaceState({}, "", cleanUrl.pathname + cleanUrl.search + cleanUrl.hash);
+    });
   }
 
   document.addEventListener("click", event => {
