@@ -756,5 +756,21 @@
         }
       ]
     }
-  }
+  },
+  "specialMissions": [
+    {
+      "id": "jace-federation",
+      "name": "日本臨床工学技士連盟",
+      "question": null,
+      "answer": null,
+      "qrToken": null
+    },
+    {
+      "id": "chushikoku-ce-17",
+      "name": "第17回中四国臨床工学会",
+      "question": null,
+      "answer": null,
+      "qrToken": null
+    }
+  ]
 }
