@@ -40,6 +40,8 @@ button{touch-action:manipulation}
 .route-card strong{display:block;font-size:1.35rem;margin-bottom:4px}
 .route-card span{color:var(--muted);line-height:1.5}
 .route-card .route-code{display:inline-block;color:var(--accent);font-weight:900;letter-spacing:.12em;margin-bottom:8px}
+.route-card .route-concealed{font-weight:800;letter-spacing:.15em}
+.route-card .route-teaser{font-size:.88rem}
 .route-card:active{transform:scale(.99)}
 .status-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0 16px}
 .stat{padding:12px;border:1px solid var(--line);background:#0e1624;border-radius:14px;text-align:center}
