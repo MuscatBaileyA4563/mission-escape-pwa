@@ -52,28 +52,28 @@
       paragraphs: [
         "あなたは、中国・四国地方を旅する冒険家。",
         "ある日、あなたのもとに一通のメッセージが届いた。",
-        "『中国・四国9県に、9つの謎を仕掛けた。すべての謎を解き、最後の宝を探し出せ。』",
+        "『中国・四国9県に、13の謎を仕掛けた。すべての謎を解き、最後の宝を探し出せ。』",
         "鳥取、島根、岡山、広島、山口、そして、徳島、香川、愛媛、高知。",
-        "9県に隠された観光地や名物、歴史にまつわる謎を解きながら企業ブースを巡れ！",
-        "各ブースのQRコードからミッションに挑戦し、担当者の名刺をゲットしよう。",
+        "中国・四国9県の観光地や歴史にまつわる13の謎を解きながら、指定された訪問先を巡れ！",
+        "企業ブースでは担当者の名刺をゲット！特別訪問先ではQR認証のみで進める。",
         "タイムリミットは48時間。すべての謎を解けば、中国・四国9県完全制覇！豪華景品があなたを待っている。",
         "さあ、冒険の始まりだ。"
       ],
-      mission: "中国・四国9県の観光地・名物・歴史にまつわる謎を解き、企業ブースを巡って完全制覇を目指せ。"
+      mission: "中国・四国9県の観光地・名物・歴史にまつわる13の謎を解き、指定された全ブースを巡って完全制覇を目指せ。"
     },
     D: {
       badge: "高知県冒険ミッション",
-      title: "高知県に仕掛けられた10の謎",
+      title: "高知県に仕掛けられた14の謎",
       paragraphs: [
         "あなたは、高知県を旅する冒険家。",
         "ある日、あなたのもとに一通のメッセージが届いた。",
-        "『高知県全域に、10個の謎を仕掛けた。すべての謎を解き、お宝を探し出せ。』",
-        "高知県に隠された観光地や名物、歴史にまつわる謎を解きながら企業ブースを巡れ！",
-        "各ブースのQRコードからミッションに挑戦し、担当者の名刺をゲットしよう。",
+        "『高知県全域に、14個の謎を仕掛けた。すべての謎を解き、お宝を探し出せ。』",
+        "高知県の自然や歴史、食文化にまつわる14の謎を解きながら、指定された訪問先を巡れ！",
+        "企業ブースでは担当者の名刺をゲット！特別訪問先ではQR認証のみで進める。",
         "タイムリミットは48時間。すべての謎を解けば、高知県完全制覇！豪華景品があなたを待っている。",
         "さあ、冒険の始まりだ。"
       ],
-      mission: "高知の方言・自然・祭り・食・歴史など10の謎を解き、企業ブースを巡ってお宝を目指せ。"
+      mission: "高知の方言・自然・祭り・食・歴史など14の謎を解き、指定された全ブースを巡ってお宝を目指せ。"
     }
   };
 
@@ -193,10 +193,10 @@
       const active = state.route === key;
       const progress = active ? routeProgress(route) : null;
       return `
-        <button class="route-card" type="button" data-route="${key}">
+        <button class="route-card" type="button" data-route="${key}" aria-label="${esc(route.name)}のミッションを確認">
           <span class="route-code">${esc(route.name)}</span>
-          <strong>${esc(route.subtitle)}</strong>
-          <span>${esc(route.intro)}</span>
+          <strong class="route-concealed">MISSION ???</strong>
+          <span class="route-teaser">内容は選択後に公開</span>
           ${progress ? `<span style="display:block;margin-top:10px;color:var(--accent)">進行 ${progress.cleared}/${progress.total}${state.completed ? " · COMPLETE" : ""}</span>` : ""}
         </button>`;
     }).join("");
@@ -206,7 +206,7 @@
       <section class="hero">
         <p class="eyebrow">中四国連絡協議会組織委員会 presents</p>
         <h1>MISSION<br>ESCAPE</h1>
-        <p>好きなルートを選択してください。まずシナリオを確認し、その後ミッションを開始します。</p>
+        <p>4つのルートから1つを選択してください。ミッションの内容は選択後に明らかになります。</p>
       </section>
       <section class="route-grid">${cards}</section>
       <p class="note" style="margin-top:18px">※ 進行状況はこの端末・このブラウザに保存されます。QR読み取りも同じブラウザで行ってください。</p>`;
@@ -308,7 +308,7 @@
 
     const choices = stage.type === "quiz"
       ? Object.entries(stage.choices).map(([letter, text]) => `
-          <button class="choice" type="button" data-choice="${letter}">
+          <button class="choice" type="button" data-choice="${letter}" aria-pressed="false">
             <span class="choice-letter">${letter}</span>
             <span>${esc(text)}</span>
           </button>`).join("")
@@ -325,6 +325,7 @@
       actionArea = destinationHtml(stage);
     } else {
       actionArea = `
+        ${Array.isArray(stage.answer) ? '<p class="note">正しいと思う選択肢をすべて選択してください（複数選択可）。</p>' : ""}
         <div class="choice-list" id="choices">${choices}</div>
         <button id="answerButton" class="primary-button" type="button" disabled>回答する</button>
         <div id="answerResult"></div>`;
@@ -356,24 +357,36 @@
   }
 
   function wireQuiz(stage) {
-    let selected = null;
+    const selected = new Set();
+    const multi = Array.isArray(stage.answer);
     const answerButton = document.getElementById("answerButton");
 
     app.querySelectorAll("[data-choice]").forEach(button => {
       button.addEventListener("click", () => {
-        selected = button.dataset.choice;
+        const value = button.dataset.choice;
+        if (multi) {
+          if (selected.has(value)) selected.delete(value);
+          else selected.add(value);
+        } else {
+          selected.clear();
+          selected.add(value);
+        }
         app.querySelectorAll("[data-choice]").forEach(item => {
-          item.classList.toggle("selected", item === button);
+          const isSelected = selected.has(item.dataset.choice);
+          item.classList.toggle("selected", isSelected);
+          item.setAttribute("aria-pressed", String(isSelected));
         });
-        answerButton.disabled = false;
+        answerButton.disabled = selected.size === 0;
       });
     });
 
     answerButton.addEventListener("click", () => {
-      if (!selected) return;
+      if (!selected.size) return;
 
+      const expected = multi ? new Set(stage.answer) : new Set([stage.answer]);
+      const correct = selected.size === expected.size && [...selected].every(choice => expected.has(choice));
       const result = document.getElementById("answerResult");
-      if (selected !== stage.answer) {
+      if (!correct) {
         result.innerHTML = `<div class="callout bad"><h3>❌ ACCESS DENIED</h3><p>その回答ではありません。もう一度考えてください。</p></div>`;
         return;
       }
@@ -381,24 +394,38 @@
       if (stage.booth && stage.qrToken) {
         state.phase = "awaitingQr";
         saveState();
-        result.innerHTML = `<div class="callout ok"><h3>✅ CORRECT</h3><p>正解。次のブースが特定されました。</p></div>${destinationHtml(stage)}`;
+        result.innerHTML = `<div class="callout ok"><h3>✅ CORRECT</h3>${stage.explanation ? `<p>${esc(stage.explanation)}</p>` : ""}<p>次のブースが特定されました。</p></div>${destinationHtml(stage)}`;
         app.querySelectorAll("[data-choice]").forEach(item => item.disabled = true);
         answerButton.disabled = true;
         return;
       }
 
-      result.innerHTML = `<div class="callout ok"><h3>✅ CORRECT</h3><p>正解です。</p></div>`;
+      const route = data.routes[state.route];
+      result.innerHTML = `<div class="callout ok"><h3>✅ CORRECT</h3>${stage.explanation ? `<p>${esc(stage.explanation)}</p>` : "<p>正解です。</p>"}</div>`;
       awardFragment(stage);
-      setTimeout(advanceStage, 450);
+      app.querySelectorAll("[data-choice]").forEach(item => item.disabled = true);
+      answerButton.disabled = true;
+      if (route.completeOnFinalAnswer && state.stageIndex === route.stages.length - 1) {
+        state.completed = true;
+        state.completedAt = new Date().toISOString();
+        saveState();
+        setTimeout(renderComplete, 450);
+      } else {
+        setTimeout(advanceStage, 450);
+      }
     });
   }
 
   function destinationHtml(stage) {
+    const visitGuidance = stage.qrOnly
+      ? "こちらでは名刺の取得は不要です。QRコードのみ読み取ってください。"
+      : "担当者の名刺を受け取り、ブースのQRコードを読み取ってください。";
     return `
       <div class="callout ok">
         <h3>✅ NEXT TARGET</h3>
-        <p>次の企業ブースが判明しました。</p>
+        <p>次の訪問先が判明しました。</p>
         <div class="booth-name">${esc(stage.booth || "")}</div>
+        <p>${visitGuidance}</p>
       </div>
       <div class="qr-instruction">
         <div class="qr-symbol">▦</div>
@@ -434,12 +461,13 @@
     }
 
     awardFragment(stage);
-    showToast(`QR認証成功：CODE ${stage.fragment} を取得`);
+    showToast(stage.fragment ? `QR認証成功：CODE ${stage.fragment} を取得` : "QR認証成功：次のミッションへ");
     clearQrFromUrl();
     setTimeout(advanceStage, 350);
   }
 
   function awardFragment(stage) {
+    if (stage.fragment == null || stage.slot == null) return;
     const key = `${state.route}-${stage.number}`;
     if (state.fragments.some(fragment => fragment.key === key)) return;
 
@@ -531,7 +559,7 @@
         <p>${esc(route.subtitle)} を完全制覇しました。</p>
         <div class="callout ok">
           <h3>景品交換所へ向かえ</h3>
-          <p>この画面をスタッフへ提示してください。</p>
+          <p>${route.completionMessage ? esc(route.completionMessage) : "この画面をスタッフへ提示してください。"}</p>
           <div class="fragment"><span>CLEAR ID</span><b>${shortId}</b></div>
         </div>
       </article>`;
