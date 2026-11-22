@@ -599,7 +599,8 @@
           "qrToken": "C-CSCE17-4N9T",
           "fragment": null,
           "slot": null,
-          "explanation": "おいしすぎて隣の家からご飯（まま）を借りてくるほど、という意味が由来とされています。"
+          "explanation": "おいしすぎて隣の家からご飯（まま）を借りてくるほど、という意味が由来とされています。",
+          "qrOnly": true
         },
         {
           "number": 13,
@@ -621,7 +622,7 @@
         }
       ],
       "completeOnFinalAnswer": true,
-      "completionMessage": "13枚の名刺を持って受付横の景品交換所へ行こう！"
+      "completionMessage": "指定された全ブースを巡って景品交換所へ"
     },
     "D": {
       "name": "ROUTE D",
@@ -862,7 +863,8 @@
           "qrToken": "D-JACE-FEDERATION-2J6N",
           "fragment": null,
           "slot": null,
-          "explanation": "ミョウガ、タケノコ、シイタケ、こんにゃくなど、山の幸を使った珍しいお寿司です。"
+          "explanation": "ミョウガ、タケノコ、シイタケ、こんにゃくなど、山の幸を使った珍しいお寿司です。",
+          "qrOnly": true
         },
         {
           "number": 14,
@@ -888,7 +890,7 @@
         }
       ],
       "completeOnFinalAnswer": true,
-      "completionMessage": "14枚の名刺を持って受付横の景品交換所へ行こう！"
+      "completionMessage": "指定された全ブースを巡って景品交換所へ"
     }
   },
   "specialMissions": [
@@ -904,7 +906,8 @@
       "qrToken": "D-JACE-FEDERATION-2J6N",
       "route": "D",
       "qrStage": 13,
-      "questionStage": 14
+      "questionStage": 14,
+      "qrOnly": true
     },
     {
       "id": "chushikoku-ce-17",
@@ -914,7 +917,8 @@
       "qrToken": "C-CSCE17-4N9T",
       "route": "C",
       "qrStage": 12,
-      "questionStage": 13
+      "questionStage": 13,
+      "qrOnly": true
     }
   ]
 }
