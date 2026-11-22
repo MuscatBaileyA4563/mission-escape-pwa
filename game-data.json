@@ -382,7 +382,7 @@
       "name": "ROUTE C",
       "subtitle": "中国・四国9県の冒険",
       "theme": "travel",
-      "intro": "鳥取・島根・岡山・広島・山口・徳島・香川・愛媛・高知。各地の謎を解き、最後の宝へ。",
+      "intro": "鳥取・島根・岡山・広島・山口・徳島・香川・愛媛・高知。全13問の謎を解き、最後の宝へ。",
       "finalCode": "CHUSHIKOKU",
       "stages": [
         {
@@ -559,13 +559,69 @@
             "D": "少年探偵団ミュージアム"
           },
           "answer": "B",
-          "booth": null,
-          "qrToken": null,
+          "booth": "株式会社キシブル",
+          "qrToken": "C-KISIBLE-6U2R",
           "fragment": "H",
           "slot": 5,
           "explanation": ""
+        },
+        {
+          "number": 11,
+          "type": "quiz",
+          "title": "香川県｜金刀比羅宮",
+          "question": "香川県にある「金刀比羅宮（こんぴらさん）」の本宮までの石段は何段でしょう？",
+          "choices": {
+            "A": "365段",
+            "B": "785段",
+            "C": "1,000段",
+            "D": "1,368段"
+          },
+          "answer": "B",
+          "booth": "高知大学大学院 ヘルスケアイノベーションコース",
+          "qrToken": "C-KOCHI-HEALTH-5P8W",
+          "fragment": null,
+          "slot": null,
+          "explanation": "本宮まで785段、奥社までは合計1,368段です。"
+        },
+        {
+          "number": 12,
+          "type": "quiz",
+          "title": "岡山県｜ままかり",
+          "question": "岡山県の郷土料理「ままかり」の名前の由来は何でしょう？",
+          "choices": {
+            "A": "ご飯を何杯もおかわりしたくなるほどおいしいから",
+            "B": "昔、殿様に献上されていた魚だから",
+            "C": "魚の形が釜に似ているから",
+            "D": "岡山弁で「魚」を意味する言葉だから"
+          },
+          "answer": "A",
+          "booth": "第17回中四国臨床工学会",
+          "qrToken": "C-CSCE17-4N9T",
+          "fragment": null,
+          "slot": null,
+          "explanation": "おいしすぎて隣の家からご飯（まま）を借りてくるほど、という意味が由来とされています。"
+        },
+        {
+          "number": 13,
+          "type": "quiz",
+          "title": "山口県｜維新ホール",
+          "question": "第17回中四国臨床工学会の大会テーマは「維新前進！ ～ファーストペンギンスピリット～」、開催会場は「維新ホール」。この維新ホールがある市は、いったいどこでしょう！？",
+          "choices": {
+            "A": "維新といえば、松下村塾！吉田松陰ゆかりの地、萩市！！",
+            "B": "ファーストペンギンといえば、ペンギン！ペンギンのいる水族館といえば、下関市！！",
+            "C": "日臨工 肥田理事長のおひざ元、宇部市！！",
+            "D": "学会参加者のアクセスも抜群！新幹線の駅、新山口駅がある、山口市！！"
+          },
+          "answer": "D",
+          "booth": null,
+          "qrToken": null,
+          "fragment": null,
+          "slot": null,
+          "explanation": ""
         }
-      ]
+      ],
+      "completeOnFinalAnswer": true,
+      "completionMessage": "13枚の名刺を持って受付横の景品交換所へ行こう！"
     },
     "D": {
       "name": "ROUTE D",
@@ -768,9 +824,12 @@
     {
       "id": "chushikoku-ce-17",
       "name": "第17回中四国臨床工学会",
-      "question": null,
-      "answer": null,
-      "qrToken": null
+      "question": "第17回中四国臨床工学会の大会テーマは「維新前進！ ～ファーストペンギンスピリット～」、開催会場は「維新ホール」。この維新ホールがある市は、いったいどこでしょう！？",
+      "answer": "D",
+      "qrToken": "C-CSCE17-4N9T",
+      "route": "C",
+      "qrStage": 12,
+      "questionStage": 13
     }
   ]
 }
