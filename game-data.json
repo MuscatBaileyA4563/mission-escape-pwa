@@ -55,7 +55,6 @@
       "subtitle": "企業探索ミッション",
       "theme": "intel",
       "intro": "企業名を導く13の謎。答えだと思う企業ブースへ移動し、設置されたQRを読み込め。",
-      "finalCode": "CSCE16MISSION",
       "stages": [
         {
           "number": 1,
@@ -63,9 +62,7 @@
           "title": "企業探索01",
           "question": "健康（HEALTH）、診断（DIAGNOSTICS）、ドイツ発祥の医療企業（SIEMENS）。この3つの言葉から導かれる企業ブースを探せ。",
           "booth": "シーメンスヘルスケア・ダイアグノスティクス株式会社 中国四国ゾーン",
-          "qrToken": "A-SIEMENS-7Q2K",
-          "fragment": "M",
-          "slot": 7
+          "qrToken": "A-SIEMENS-7Q2K"
         },
         {
           "number": 2,
@@ -73,9 +70,7 @@
           "title": "企業探索02",
           "question": "T、M、S、E を並び替えて、カタカナ3文字の企業名を導け。その企業ブースへ向かえ。",
           "booth": "株式会社メッツ",
-          "qrToken": "A-METZ-4H8P",
-          "fragment": "C",
-          "slot": 1
+          "qrToken": "A-METZ-4H8P"
         },
         {
           "number": 3,
@@ -83,9 +78,7 @@
           "title": "企業探索03",
           "question": "カテーテル、静脈留置針、血液透析、血管内治療。これらと深い関わりがあり、医療を意味する「MEDI」が入る企業を探せ。",
           "booth": "メディキット株式会社",
-          "qrToken": "A-MEDIKIT-9M3R",
-          "fragment": "O",
-          "slot": 12
+          "qrToken": "A-MEDIKIT-9M3R"
         },
         {
           "number": 4,
@@ -93,9 +86,7 @@
           "title": "企業探索04",
           "question": "「愛」が2文字入っているように読める企業名を探せ。",
           "booth": "アイ・エム・アイ株式会社",
-          "qrToken": "A-IMI-2V7N",
-          "fragment": "E",
-          "slot": 4
+          "qrToken": "A-IMI-2V7N"
         },
         {
           "number": 5,
@@ -103,9 +94,7 @@
           "title": "企業探索05",
           "question": "「マリン」から始まる企業名のブースへ向かえ。",
           "booth": "マリンクロットファーマ株式会社",
-          "qrToken": "A-MARIN-6C4X",
-          "fragment": "S",
-          "slot": 9
+          "qrToken": "A-MARIN-6C4X"
         },
         {
           "number": 6,
@@ -113,9 +102,7 @@
           "title": "企業探索06",
           "question": "優秀な体温計の国産化をめざして設立され、ドイツ語 THERMOMETER（体温計）が社名の由来となった企業を探せ。",
           "booth": "テルモ株式会社",
-          "qrToken": "A-TERUMO-5B9J",
-          "fragment": "S",
-          "slot": 2
+          "qrToken": "A-TERUMO-5B9J"
         },
         {
           "number": 7,
@@ -123,9 +110,7 @@
           "title": "企業探索07",
           "question": "ドイツ生まれの医療・安全技術メーカー。人工呼吸器、麻酔器、患者モニタリング、保育器などを扱い、代表的な人工呼吸器シリーズに Evita がある企業を探せ。",
           "booth": "ドレーゲルジャパン株式会社",
-          "qrToken": "A-DRAEGER-8T2D",
-          "fragment": "N",
-          "slot": 13
+          "qrToken": "A-DRAEGER-8T2D"
         },
         {
           "number": 8,
@@ -133,9 +118,7 @@
           "title": "企業探索08",
           "question": "1950年代に世界で最初の血液ガス分析装置を発表した歴史を持ち、ABLシリーズで知られる企業を探せ。",
           "booth": "ラジオメーター株式会社",
-          "qrToken": "A-RADIOMETER-3K7W",
-          "fragment": "1",
-          "slot": 5
+          "qrToken": "A-RADIOMETER-3K7W"
         },
         {
           "number": 9,
@@ -143,9 +126,7 @@
           "title": "企業探索09",
           "question": "X線CT、MRI、超音波などを手がける世界的なヘルスケア企業のブースを探せ。",
           "booth": "GEヘルスケア・ジャパン株式会社",
-          "qrToken": "A-GEHC-1F6S",
-          "fragment": "S",
-          "slot": 10
+          "qrToken": "A-GEHC-1F6S"
         },
         {
           "number": 10,
@@ -153,9 +134,7 @@
           "title": "企業探索10",
           "question": "謎1：28番元素の元素記号。謎2：カリウム・カリウム・ヨウ素の元素記号を順に。謎3：SOCIAL / SOLAR / SOURCE に共通する冒頭2文字。3つの答えを左からつなぎ、できるアルファベット7文字の企業を探せ。",
           "booth": "日機装株式会社",
-          "qrToken": "A-NIKKISO-0L5A",
-          "fragment": "C",
-          "slot": 3
+          "qrToken": "A-NIKKISO-0L5A"
         },
         {
           "number": 11,
@@ -163,9 +142,7 @@
           "title": "企業探索11",
           "question": "「毎回・普段・永遠・いつも」に共通する漢字1文字と、「X線・顕微鏡・検査装置・画像診断」に共通する漢字1文字。この漢字2文字からなる企業を探せ。",
           "booth": "株式会社常光",
-          "qrToken": "A-JOKOH-7Y3E",
-          "fragment": "I",
-          "slot": 8
+          "qrToken": "A-JOKOH-7Y3E"
         },
         {
           "number": 12,
@@ -173,9 +150,7 @@
           "title": "企業探索12",
           "question": "手術室内の医用映像を記録・管理し、院内へライブ配信する「ADMENIC」を展開している企業を探せ。",
           "booth": "カリーナシステム株式会社",
-          "qrToken": "A-CARINA-4P1U",
-          "fragment": "6",
-          "slot": 6
+          "qrToken": "A-CARINA-4P1U"
         },
         {
           "number": 13,
@@ -183,9 +158,7 @@
           "title": "企業探索13",
           "question": "鳥取県の企業を、経営・技術・販売など多方面から支える“企業の応援団”を探せ。",
           "booth": "公益財団法人鳥取県産業振興機構",
-          "qrToken": "A-TORISAN-6N8Q",
-          "fragment": "I",
-          "slot": 11
+          "qrToken": "A-TORISAN-6N8Q"
         }
       ]
     },
@@ -194,7 +167,6 @@
       "subtitle": "南海トラフ巨大地震",
       "theme": "emergency",
       "intro": "病院機能停止まで、あと48時間。電力・呼吸・循環・血液浄化を復旧せよ。",
-      "finalCode": "CE48HOURS!",
       "stages": [
         {
           "number": 1,
@@ -210,8 +182,6 @@
           "answer": "B",
           "booth": "ニプロ株式会社",
           "qrToken": "B-NIPRO-8K2M",
-          "fragment": "O",
-          "slot": 6,
           "explanation": ""
         },
         {
@@ -228,8 +198,6 @@
           "answer": "C",
           "booth": "日本ストライカー株式会社",
           "qrToken": "B-STRYKER-3R9V",
-          "fragment": "C",
-          "slot": 1,
           "explanation": ""
         },
         {
@@ -246,8 +214,6 @@
           "answer": "A",
           "booth": "大正医科器械株式会社",
           "qrToken": "B-TAISHO-5D1Q",
-          "fragment": "S",
-          "slot": 9,
           "explanation": ""
         },
         {
@@ -264,8 +230,6 @@
           "answer": "B",
           "booth": "株式会社アイビジョン",
           "qrToken": "B-IVISION-7T4C",
-          "fragment": "8",
-          "slot": 4,
           "explanation": ""
         },
         {
@@ -282,8 +246,6 @@
           "answer": "D",
           "booth": "株式会社アスカメディカル",
           "qrToken": "B-ASUKA-2P8H",
-          "fragment": "E",
-          "slot": 2,
           "explanation": ""
         },
         {
@@ -300,8 +262,6 @@
           "answer": "B",
           "booth": "富士フイルムメディカル株式会社",
           "qrToken": "B-FUJIFILM-6W0N",
-          "fragment": "R",
-          "slot": 8,
           "explanation": ""
         },
         {
@@ -318,8 +278,6 @@
           "answer": "B",
           "booth": "株式会社アムコ",
           "qrToken": "B-AMCO-9A3F",
-          "fragment": "!",
-          "slot": 10,
           "explanation": ""
         },
         {
@@ -336,8 +294,6 @@
           "answer": "B",
           "booth": "日本光電工業株式会社",
           "qrToken": "B-NIHONKOHDEN-1J7S",
-          "fragment": "4",
-          "slot": 3,
           "explanation": ""
         },
         {
@@ -354,8 +310,6 @@
           "answer": "C",
           "booth": "株式会社サナス",
           "qrToken": "B-SANAS-4E6L",
-          "fragment": "U",
-          "slot": 7,
           "explanation": ""
         },
         {
@@ -372,8 +326,6 @@
           "answer": "C",
           "booth": null,
           "qrToken": null,
-          "fragment": "H",
-          "slot": 5,
           "explanation": ""
         }
       ]
@@ -383,7 +335,6 @@
       "subtitle": "中国・四国9県の冒険",
       "theme": "travel",
       "intro": "鳥取・島根・岡山・広島・山口・徳島・香川・愛媛・高知。全13問の謎を解き、最後の宝へ。",
-      "finalCode": "CHUSHIKOKU",
       "stages": [
         {
           "number": 1,
@@ -399,8 +350,6 @@
           "answer": "B",
           "booth": "株式会社ジェイ・エム・エス",
           "qrToken": "C-JMS-2Q8K",
-          "fragment": "I",
-          "slot": 6,
           "explanation": ""
         },
         {
@@ -417,8 +366,6 @@
           "answer": "B",
           "booth": "日東工器株式会社",
           "qrToken": "C-NITTO-5V1M",
-          "fragment": "C",
-          "slot": 1,
           "explanation": ""
         },
         {
@@ -435,8 +382,6 @@
           "answer": "A",
           "booth": "株式会社レスター",
           "qrToken": "C-RESTAR-7C4P",
-          "fragment": "K",
-          "slot": 9,
           "explanation": ""
         },
         {
@@ -453,8 +398,6 @@
           "answer": "A",
           "booth": "東レ・メディカル株式会社",
           "qrToken": "C-TORAY-9H3R",
-          "fragment": "S",
-          "slot": 4,
           "explanation": ""
         },
         {
@@ -471,8 +414,6 @@
           "answer": "A",
           "booth": "東亜ディーケーケー株式会社",
           "qrToken": "C-TOADKK-3N6W",
-          "fragment": "H",
-          "slot": 2,
           "explanation": ""
         },
         {
@@ -489,8 +430,6 @@
           "answer": "D",
           "booth": "泉工医科工業株式会社",
           "qrToken": "C-SENKO-1T7D",
-          "fragment": "O",
-          "slot": 8,
           "explanation": ""
         },
         {
@@ -507,8 +446,6 @@
           "answer": "B",
           "booth": "株式会社京都医療設計 営業部",
           "qrToken": "C-KYOTO-8B2Y",
-          "fragment": "U",
-          "slot": 10,
           "explanation": ""
         },
         {
@@ -525,8 +462,6 @@
           "answer": "A",
           "booth": "タキゲン製造株式会社",
           "qrToken": "C-TAKIGEN-6F0A",
-          "fragment": "U",
-          "slot": 3,
           "explanation": ""
         },
         {
@@ -543,8 +478,6 @@
           "answer": "D",
           "booth": "オクト産業株式会社",
           "qrToken": "C-OCTO-4S9J",
-          "fragment": "K",
-          "slot": 7,
           "explanation": ""
         },
         {
@@ -561,8 +494,6 @@
           "answer": "B",
           "booth": "株式会社キシブル",
           "qrToken": "C-KISIBLE-6U2R",
-          "fragment": "H",
-          "slot": 5,
           "explanation": ""
         },
         {
@@ -579,8 +510,6 @@
           "answer": "B",
           "booth": "高知大学大学院 ヘルスケアイノベーションコース",
           "qrToken": "C-KOCHI-HEALTH-5P8W",
-          "fragment": null,
-          "slot": null,
           "explanation": "本宮まで785段、奥社までは合計1,368段です。"
         },
         {
@@ -597,8 +526,6 @@
           "answer": "A",
           "booth": "第17回中四国臨床工学会",
           "qrToken": "C-CSCE17-4N9T",
-          "fragment": null,
-          "slot": null,
           "explanation": "おいしすぎて隣の家からご飯（まま）を借りてくるほど、という意味が由来とされています。"
         },
         {
@@ -615,20 +542,15 @@
           "answer": "D",
           "booth": null,
           "qrToken": null,
-          "fragment": null,
-          "slot": null,
           "explanation": ""
         }
-      ],
-      "completeOnFinalAnswer": true,
-      "completionMessage": "指定された全ブースを巡って景品交換所へ"
+      ]
     },
     "D": {
       "name": "ROUTE D",
       "subtitle": "高知県14の謎",
       "theme": "kochi",
       "intro": "方言、清流、祭り、食、歴史。高知県に仕掛けられた14の謎を突破せよ。",
-      "finalCode": "KOCHIRYOMA",
       "stages": [
         {
           "number": 1,
@@ -644,8 +566,6 @@
           "answer": "B",
           "booth": "ベリフィケーションテクノロジー株式会社",
           "qrToken": "D-VERIFY-8P3C",
-          "fragment": "R",
-          "slot": 6,
           "explanation": ""
         },
         {
@@ -662,8 +582,6 @@
           "answer": "B",
           "booth": "株式会社タカトリ",
           "qrToken": "D-TAKATORI-1K7V",
-          "fragment": "K",
-          "slot": 1,
           "explanation": ""
         },
         {
@@ -680,8 +598,6 @@
           "answer": "C",
           "booth": "リヴァノヴァ株式会社",
           "qrToken": "D-LIVANOVA-5M2H",
-          "fragment": "M",
-          "slot": 9,
           "explanation": ""
         },
         {
@@ -698,8 +614,6 @@
           "answer": "A",
           "booth": "フジクリーン株式会社",
           "qrToken": "D-FUJI-7Q4N",
-          "fragment": "H",
-          "slot": 4,
           "explanation": ""
         },
         {
@@ -716,8 +630,6 @@
           "answer": "D",
           "booth": "株式会社DRAGON AGENCY",
           "qrToken": "D-DRAGON-9T1R",
-          "fragment": "O",
-          "slot": 2,
           "explanation": ""
         },
         {
@@ -734,8 +646,6 @@
           "answer": "B",
           "booth": "広和計装株式会社",
           "qrToken": "D-KOWA-2D8W",
-          "fragment": "O",
-          "slot": 8,
           "explanation": ""
         },
         {
@@ -752,8 +662,6 @@
           "answer": "D",
           "booth": "株式会社タチエスH&P",
           "qrToken": "D-TACHI-S-6F3A",
-          "fragment": "A",
-          "slot": 10,
           "explanation": ""
         },
         {
@@ -770,8 +678,6 @@
           "answer": "A",
           "booth": "フクダ電子四国販売株式会社",
           "qrToken": "D-FUKUDA-4J0S",
-          "fragment": "C",
-          "slot": 3,
           "explanation": ""
         },
         {
@@ -788,8 +694,6 @@
           "answer": "D",
           "booth": "株式会社ノーザ 営業統括本部",
           "qrToken": "D-NOZA-3Y9L",
-          "fragment": "Y",
-          "slot": 7,
           "explanation": ""
         },
         {
@@ -806,8 +710,6 @@
           "answer": "D",
           "booth": "株式会社アーストレックロボティクス",
           "qrToken": "D-EARTHTREK-3A8K",
-          "fragment": "I",
-          "slot": 5,
           "explanation": ""
         },
         {
@@ -824,8 +726,6 @@
           "answer": "A",
           "booth": "東洋紡株式会社",
           "qrToken": "D-TOYOBO-7M2P",
-          "fragment": null,
-          "slot": null,
           "explanation": "欄干を設けず、洪水時に流木などが引っ掛かりにくい構造になっています。"
         },
         {
@@ -842,8 +742,6 @@
           "answer": "D",
           "booth": "広島大学 学術・社会連携室 オープンイノベーション本部 産学連携部 バイオデザイン部門",
           "qrToken": "D-HIROSHIMA-BIODESIGN-8L4H",
-          "fragment": null,
-          "slot": null,
           "explanation": "1690年に始まったとされ、300年以上続く歴史ある街路市です。"
         },
         {
@@ -860,8 +758,6 @@
           "answer": "B",
           "booth": "日本臨床工学技士連盟",
           "qrToken": "D-JACE-FEDERATION-2J6N",
-          "fragment": null,
-          "slot": null,
           "explanation": "ミョウガ、タケノコ、シイタケ、こんにゃくなど、山の幸を使った珍しいお寿司です。"
         },
         {
@@ -882,13 +778,9 @@
           ],
           "booth": null,
           "qrToken": null,
-          "fragment": null,
-          "slot": null,
           "explanation": ""
         }
-      ],
-      "completeOnFinalAnswer": true,
-      "completionMessage": "指定された全ブースを巡って景品交換所へ"
+      ]
     }
   },
   "specialMissions": [

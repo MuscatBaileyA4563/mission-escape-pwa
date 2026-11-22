@@ -3,7 +3,6 @@
 
   const STORAGE_KEY = "missionEscapeStateV2";
   const OLD_STORAGE_KEY = "missionEscapeStateV1";
-  const PLAYER_KEY = "missionEscapePlayerV1";
 
   const app = document.getElementById("app");
   const toast = document.getElementById("toast");
@@ -82,7 +81,6 @@
       route: null,
       stageIndex: 0,
       phase: "challenge",
-      fragments: [],
       completed: false,
       completedAt: null
     };
@@ -95,7 +93,6 @@
       route: typeof value.route === "string" ? value.route : null,
       stageIndex: Number.isInteger(value.stageIndex) && value.stageIndex >= 0 ? value.stageIndex : 0,
       phase: value.phase === "awaitingQr" ? "awaitingQr" : "challenge",
-      fragments: Array.isArray(value.fragments) ? value.fragments : [],
       completed: Boolean(value.completed),
       completedAt: value.completedAt || null
     };
@@ -126,15 +123,6 @@
     state = emptyState();
     saveState();
     clearQrFromUrl();
-  }
-
-  function ensurePlayerId() {
-    let id = localStorage.getItem(PLAYER_KEY);
-    if (!id) {
-      id = crypto.randomUUID ? crypto.randomUUID() : `p-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
-      localStorage.setItem(PLAYER_KEY, id);
-    }
-    return id;
   }
 
   function esc(value = "") {
@@ -186,6 +174,11 @@
       cleared,
       pct: Math.round((cleared / total) * 100)
     };
+  }
+
+  function visitedQrCount(route) {
+    return route.stages.slice(0, Math.min(state.stageIndex, route.stages.length))
+      .filter(stage => stage.qrToken).length;
   }
 
   function renderHome() {
@@ -270,8 +263,7 @@
         route: routeKey,
         stageIndex: 0,
         phase: "challenge",
-        fragments: [],
-        completed: false,
+          completed: false,
         completedAt: null
       };
       saveState();
@@ -298,7 +290,7 @@
     }
 
     if (state.stageIndex >= route.stages.length) {
-      renderCipher();
+      completeRoute();
       return;
     }
 
@@ -336,7 +328,7 @@
       <div class="status-strip">
         <div class="stat"><b>${state.stageIndex + 1}</b><span>STAGE</span></div>
         <div class="stat"><b>${progress.cleared}/${progress.total}</b><span>CLEAR</span></div>
-        <div class="stat"><b>${state.fragments.length}</b><span>CODE</span></div>
+        <div class="stat"><b>${visitedQrCount(route)}/${route.stages.filter(stage => stage.qrToken).length}</b><span>訪問QR</span></div>
       </div>
       <div class="progress" aria-label="進行状況"><div style="width:${progress.pct}%"></div></div>
       <article class="mission-card">
@@ -400,19 +392,10 @@
         return;
       }
 
-      const route = data.routes[state.route];
       result.innerHTML = `<div class="callout ok"><h3>✅ CORRECT</h3>${stage.explanation ? `<p>${esc(stage.explanation)}</p>` : "<p>正解です。</p>"}</div>`;
-      awardFragment(stage);
       app.querySelectorAll("[data-choice]").forEach(item => item.disabled = true);
       answerButton.disabled = true;
-      if (route.completeOnFinalAnswer && state.stageIndex === route.stages.length - 1) {
-        state.completed = true;
-        state.completedAt = new Date().toISOString();
-        saveState();
-        setTimeout(renderComplete, 450);
-      } else {
-        setTimeout(advanceStage, 450);
-      }
+      setTimeout(advanceStage, 450);
     });
   }
 
@@ -458,24 +441,9 @@
       return;
     }
 
-    awardFragment(stage);
-    showToast(stage.fragment ? `QR認証成功：CODE ${stage.fragment} を取得` : "QR認証成功：次のミッションへ");
+    showToast("QR認証成功：訪問先を確認しました。次のミッションへ");
     clearQrFromUrl();
     setTimeout(advanceStage, 350);
-  }
-
-  function awardFragment(stage) {
-    if (stage.fragment == null || stage.slot == null) return;
-    const key = `${state.route}-${stage.number}`;
-    if (state.fragments.some(fragment => fragment.key === key)) return;
-
-    state.fragments.push({
-      key,
-      slot: stage.slot,
-      value: stage.fragment,
-      stage: stage.number
-    });
-    saveState();
   }
 
   function advanceStage() {
@@ -489,54 +457,17 @@
     state.phase = "challenge";
     saveState();
 
-    if (state.stageIndex >= route.stages.length) renderCipher();
+    if (state.stageIndex >= route.stages.length) completeRoute();
     else renderGame();
   }
 
-  function renderCipher() {
-    const route = data.routes[state.route];
-    if (!route) {
-      renderHome();
-      return;
-    }
-
-    const fragments = [...state.fragments]
-      .sort((a, b) => a.stage - b.stage)
-      .map(fragment => `
-        <div class="fragment-card">
-          <span>暗号位置 ${fragment.slot}</span>
-          <b>${esc(fragment.value)}</b>
-        </div>`).join("");
-
-    app.innerHTML = `
-      ${renderHeader(`${route.name} · FINAL`)}
-      <article class="mission-card">
-        <div class="mission-head">
-          <div class="stage-label">FINAL MISSION</div>
-          <h1>暗号を復元せよ</h1>
-        </div>
-        <div class="mission-body">
-          <p class="question">集めた暗号の欠片を「暗号位置」の順に並べ、完成したFINAL CODEを入力せよ。</p>
-          <div class="fragments">${fragments}</div>
-          <input id="finalCodeInput" class="code-input" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="FINAL CODE">
-          <button id="finalCodeButton" class="primary-button" type="button">UNLOCK</button>
-          <div id="finalResult"></div>
-        </div>
-      </article>`;
-
-    wireHeader();
-    document.getElementById("finalCodeButton").addEventListener("click", () => {
-      const value = document.getElementById("finalCodeInput").value.replace(/\s+/g, "").toUpperCase();
-      if (value !== route.finalCode.toUpperCase()) {
-        document.getElementById("finalResult").innerHTML = `<div class="callout bad"><h3>❌ CODE ERROR</h3><p>暗号位置を確認して、もう一度入力してください。</p></div>`;
-        return;
-      }
-
-      state.completed = true;
-      state.completedAt = new Date().toISOString();
-      saveState();
-      renderComplete();
-    });
+  function completeRoute() {
+    state.stageIndex = data.routes[state.route].stages.length;
+    state.phase = "challenge";
+    state.completed = true;
+    state.completedAt = new Date().toISOString();
+    saveState();
+    renderComplete();
   }
 
   function renderComplete() {
@@ -546,19 +477,20 @@
       return;
     }
 
-    const shortId = ensurePlayerId().replace(/-/g, "").slice(0, 8).toUpperCase();
     app.innerHTML = `
       ${renderHeader(`${route.name} · COMPLETE`)}
       <article class="mission-card complete">
-        <div class="complete-mark">🏆</div>
-        <p class="eyebrow">ALL SYSTEMS GREEN</p>
+        <div class="complete-mark">🎁</div>
+        <p class="eyebrow">ALL MISSIONS CLEARED</p>
         <h1>MISSION COMPLETE</h1>
         <div class="big">CLEAR</div>
         <p>${esc(route.subtitle)} を完全制覇しました。</p>
         <div class="callout ok">
-          <h3>景品交換所へ向かえ</h3>
-          <p>${route.completionMessage ? esc(route.completionMessage) : "この画面をスタッフへ提示してください。"}</p>
-          <div class="fragment"><span>CLEAR ID</span><b>${shortId}</b></div>
+          <h3>参加受付横のプレゼント置き場へ！</h3>
+          <p>集めた名刺を持って、参加受付横のプレゼント置き場に向かってください。</p>
+          <p>スタッフに名刺を見せて、「合言葉は？」と聞かれたら答えましょう。</p>
+          <p class="question">合言葉は「<strong>舞！</strong>」</p>
+          <p>合言葉を伝えて、プレゼントを受け取ってください！</p>
         </div>
       </article>`;
     wireHeader();
@@ -578,7 +510,6 @@
       const response = await fetch("./game-data.json", { cache: "no-cache" });
       if (!response.ok) throw new Error(`game-data ${response.status}`);
       data = await response.json();
-      ensurePlayerId();
 
       if (pendingQr) {
         if (state.route && data.routes[state.route]) renderGame();
@@ -591,7 +522,7 @@
 
       if (state.route && data.routes[state.route]) {
         if (state.completed) renderComplete();
-        else if (state.stageIndex >= data.routes[state.route].stages.length) renderCipher();
+        else if (state.stageIndex >= data.routes[state.route].stages.length) completeRoute();
         else renderGame();
       } else {
         renderHome();
