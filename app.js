@@ -197,7 +197,7 @@
     app.innerHTML = `
       ${renderHeader("ROUTE SELECT")}
       <section class="hero">
-        <p class="eyebrow">中四国連絡協議会組織委員会 presents</p>
+        <p class="eyebrow">第16回中四国臨床工学会 presents</p>
         <h1>MISSION<br>ESCAPE</h1>
         <p>4つのルートから1つを選択してください。ミッションの内容は選択後に明らかになります。</p>
       </section>
