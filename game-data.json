@@ -625,9 +625,9 @@
     },
     "D": {
       "name": "ROUTE D",
-      "subtitle": "高知県10の謎",
+      "subtitle": "高知県14の謎",
       "theme": "kochi",
-      "intro": "方言、清流、祭り、食、歴史。高知県に仕掛けられた10の謎を突破せよ。",
+      "intro": "方言、清流、祭り、食、歴史。高知県に仕掛けられた14の謎を突破せよ。",
       "finalCode": "KOCHIRYOMA",
       "stages": [
         {
@@ -804,22 +804,107 @@
             "D": "岡田会長"
           },
           "answer": "D",
-          "booth": null,
-          "qrToken": null,
+          "booth": "株式会社アーストレックロボティクス",
+          "qrToken": "D-EARTHTREK-3A8K",
           "fragment": "I",
           "slot": 5,
           "explanation": ""
+        },
+        {
+          "number": 11,
+          "type": "quiz",
+          "title": "四万十川｜沈下橋",
+          "question": "高知県の四万十川に多く見られる、増水時に川に沈むことを想定して欄干がない橋を何と呼ぶでしょう？",
+          "choices": {
+            "A": "沈下橋",
+            "B": "吊り橋",
+            "C": "太鼓橋",
+            "D": "石橋"
+          },
+          "answer": "A",
+          "booth": "東洋紡株式会社",
+          "qrToken": "D-TOYOBO-7M2P",
+          "fragment": null,
+          "slot": null,
+          "explanation": "欄干を設けず、洪水時に流木などが引っ掛かりにくい構造になっています。"
+        },
+        {
+          "number": 12,
+          "type": "quiz",
+          "title": "高知市｜日曜市",
+          "question": "高知県の「日曜市」は、何年以上の歴史があるでしょう？",
+          "choices": {
+            "A": "約50年",
+            "B": "約100年",
+            "C": "約200年",
+            "D": "約300年"
+          },
+          "answer": "D",
+          "booth": "広島大学 学術・社会連携室 オープンイノベーション本部 産学連携部 バイオデザイン部門",
+          "qrToken": "D-HIROSHIMA-BIODESIGN-8L4H",
+          "fragment": null,
+          "slot": null,
+          "explanation": "1690年に始まったとされ、300年以上続く歴史ある街路市です。"
+        },
+        {
+          "number": 13,
+          "type": "quiz",
+          "title": "高知県｜田舎ずし",
+          "question": "高知県の郷土料理「田舎ずし」の特徴は何でしょう？",
+          "choices": {
+            "A": "肉を具材にした寿司",
+            "B": "野菜を使った寿司",
+            "C": "フルーツを使った寿司",
+            "D": "揚げた魚を使った寿司"
+          },
+          "answer": "B",
+          "booth": "日本臨床工学技士連盟",
+          "qrToken": "D-JACE-FEDERATION-2J6N",
+          "fragment": null,
+          "slot": null,
+          "explanation": "ミョウガ、タケノコ、シイタケ、こんにゃくなど、山の幸を使った珍しいお寿司です。"
+        },
+        {
+          "number": 14,
+          "type": "quiz",
+          "title": "日本臨床工学技士連盟｜活動を選べ",
+          "question": "日本臨床工学技士連盟の活動を、すべて選んでください。",
+          "choices": {
+            "A": "国会議員や関係省庁に、処遇改善などを要望する",
+            "B": "臨床工学技士を支援する議員連盟や、日本医師連盟と連携する",
+            "C": "臨床工学技士の業務拡大に向けて、法改正などを働きかける",
+            "D": "専門・認定臨床工学技士の講習や試験を実施する"
+          },
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "booth": null,
+          "qrToken": null,
+          "fragment": null,
+          "slot": null,
+          "explanation": ""
         }
-      ]
+      ],
+      "completeOnFinalAnswer": true,
+      "completionMessage": "14枚の名刺を持って受付横の景品交換所へ行こう！"
     }
   },
   "specialMissions": [
     {
       "id": "jace-federation",
       "name": "日本臨床工学技士連盟",
-      "question": null,
-      "answer": null,
-      "qrToken": null
+      "question": "日本臨床工学技士連盟の活動を、すべて選んでください。",
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "qrToken": "D-JACE-FEDERATION-2J6N",
+      "route": "D",
+      "qrStage": 13,
+      "questionStage": 14
     },
     {
       "id": "chushikoku-ce-17",
