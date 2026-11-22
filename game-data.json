@@ -599,8 +599,7 @@
           "qrToken": "C-CSCE17-4N9T",
           "fragment": null,
           "slot": null,
-          "explanation": "おいしすぎて隣の家からご飯（まま）を借りてくるほど、という意味が由来とされています。",
-          "qrOnly": true
+          "explanation": "おいしすぎて隣の家からご飯（まま）を借りてくるほど、という意味が由来とされています。"
         },
         {
           "number": 13,
@@ -863,8 +862,7 @@
           "qrToken": "D-JACE-FEDERATION-2J6N",
           "fragment": null,
           "slot": null,
-          "explanation": "ミョウガ、タケノコ、シイタケ、こんにゃくなど、山の幸を使った珍しいお寿司です。",
-          "qrOnly": true
+          "explanation": "ミョウガ、タケノコ、シイタケ、こんにゃくなど、山の幸を使った珍しいお寿司です。"
         },
         {
           "number": 14,
@@ -906,8 +904,7 @@
       "qrToken": "D-JACE-FEDERATION-2J6N",
       "route": "D",
       "qrStage": 13,
-      "questionStage": 14,
-      "qrOnly": true
+      "questionStage": 14
     },
     {
       "id": "chushikoku-ce-17",
@@ -917,8 +914,7 @@
       "qrToken": "C-CSCE17-4N9T",
       "route": "C",
       "qrStage": 12,
-      "questionStage": 13,
-      "qrOnly": true
+      "questionStage": 13
     }
   ]
 }
