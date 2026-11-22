@@ -308,7 +308,7 @@
 
     const choices = stage.type === "quiz"
       ? Object.entries(stage.choices).map(([letter, text]) => `
-          <button class="choice" type="button" data-choice="${letter}">
+          <button class="choice" type="button" data-choice="${letter}" aria-pressed="false">
             <span class="choice-letter">${letter}</span>
             <span>${esc(text)}</span>
           </button>`).join("")
@@ -325,6 +325,7 @@
       actionArea = destinationHtml(stage);
     } else {
       actionArea = `
+        ${Array.isArray(stage.answer) ? '<p class="note">正しいと思う選択肢をすべて選択してください（複数選択可）。</p>' : ""}
         <div class="choice-list" id="choices">${choices}</div>
         <button id="answerButton" class="primary-button" type="button" disabled>回答する</button>
         <div id="answerResult"></div>`;
@@ -356,24 +357,36 @@
   }
 
   function wireQuiz(stage) {
-    let selected = null;
+    const selected = new Set();
+    const multi = Array.isArray(stage.answer);
     const answerButton = document.getElementById("answerButton");
 
     app.querySelectorAll("[data-choice]").forEach(button => {
       button.addEventListener("click", () => {
-        selected = button.dataset.choice;
+        const value = button.dataset.choice;
+        if (multi) {
+          if (selected.has(value)) selected.delete(value);
+          else selected.add(value);
+        } else {
+          selected.clear();
+          selected.add(value);
+        }
         app.querySelectorAll("[data-choice]").forEach(item => {
-          item.classList.toggle("selected", item === button);
+          const isSelected = selected.has(item.dataset.choice);
+          item.classList.toggle("selected", isSelected);
+          item.setAttribute("aria-pressed", String(isSelected));
         });
-        answerButton.disabled = false;
+        answerButton.disabled = selected.size === 0;
       });
     });
 
     answerButton.addEventListener("click", () => {
-      if (!selected) return;
+      if (!selected.size) return;
 
+      const expected = multi ? new Set(stage.answer) : new Set([stage.answer]);
+      const correct = selected.size === expected.size && [...selected].every(choice => expected.has(choice));
       const result = document.getElementById("answerResult");
-      if (selected !== stage.answer) {
+      if (!correct) {
         result.innerHTML = `<div class="callout bad"><h3>❌ ACCESS DENIED</h3><p>その回答ではありません。もう一度考えてください。</p></div>`;
         return;
       }
@@ -381,15 +394,25 @@
       if (stage.booth && stage.qrToken) {
         state.phase = "awaitingQr";
         saveState();
-        result.innerHTML = `<div class="callout ok"><h3>✅ CORRECT</h3><p>正解。次のブースが特定されました。</p></div>${destinationHtml(stage)}`;
+        result.innerHTML = `<div class="callout ok"><h3>✅ CORRECT</h3>${stage.explanation ? `<p>${esc(stage.explanation)}</p>` : ""}<p>次のブースが特定されました。</p></div>${destinationHtml(stage)}`;
         app.querySelectorAll("[data-choice]").forEach(item => item.disabled = true);
         answerButton.disabled = true;
         return;
       }
 
-      result.innerHTML = `<div class="callout ok"><h3>✅ CORRECT</h3><p>正解です。</p></div>`;
+      const route = data.routes[state.route];
+      result.innerHTML = `<div class="callout ok"><h3>✅ CORRECT</h3>${stage.explanation ? `<p>${esc(stage.explanation)}</p>` : "<p>正解です。</p>"}</div>`;
       awardFragment(stage);
-      setTimeout(advanceStage, 450);
+      app.querySelectorAll("[data-choice]").forEach(item => item.disabled = true);
+      answerButton.disabled = true;
+      if (route.completeOnFinalAnswer && state.stageIndex === route.stages.length - 1) {
+        state.completed = true;
+        state.completedAt = new Date().toISOString();
+        saveState();
+        setTimeout(renderComplete, 450);
+      } else {
+        setTimeout(advanceStage, 450);
+      }
     });
   }
 
@@ -397,7 +420,7 @@
     return `
       <div class="callout ok">
         <h3>✅ NEXT TARGET</h3>
-        <p>次の企業ブースが判明しました。</p>
+        <p>次の訪問先が判明しました。</p>
         <div class="booth-name">${esc(stage.booth || "")}</div>
       </div>
       <div class="qr-instruction">
@@ -434,12 +457,13 @@
     }
 
     awardFragment(stage);
-    showToast(`QR認証成功：CODE ${stage.fragment} を取得`);
+    showToast(stage.fragment ? `QR認証成功：CODE ${stage.fragment} を取得` : "QR認証成功：次のミッションへ");
     clearQrFromUrl();
     setTimeout(advanceStage, 350);
   }
 
   function awardFragment(stage) {
+    if (stage.fragment == null || stage.slot == null) return;
     const key = `${state.route}-${stage.number}`;
     if (state.fragments.some(fragment => fragment.key === key)) return;
 
@@ -531,7 +555,7 @@
         <p>${esc(route.subtitle)} を完全制覇しました。</p>
         <div class="callout ok">
           <h3>景品交換所へ向かえ</h3>
-          <p>この画面をスタッフへ提示してください。</p>
+          <p>${route.completionMessage ? esc(route.completionMessage) : "この画面をスタッフへ提示してください。"}</p>
           <div class="fragment"><span>CLEAR ID</span><b>${shortId}</b></div>
         </div>
       </article>`;
