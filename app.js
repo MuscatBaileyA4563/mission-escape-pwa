@@ -193,10 +193,10 @@
       const active = state.route === key;
       const progress = active ? routeProgress(route) : null;
       return `
-        <button class="route-card" type="button" data-route="${key}">
+        <button class="route-card" type="button" data-route="${key}" aria-label="${esc(route.name)}のミッションを確認">
           <span class="route-code">${esc(route.name)}</span>
-          <strong>${esc(route.subtitle)}</strong>
-          <span>${esc(route.intro)}</span>
+          <strong class="route-concealed">MISSION ???</strong>
+          <span class="route-teaser">内容は選択後に公開</span>
           ${progress ? `<span style="display:block;margin-top:10px;color:var(--accent)">進行 ${progress.cleared}/${progress.total}${state.completed ? " · COMPLETE" : ""}</span>` : ""}
         </button>`;
     }).join("");
@@ -206,7 +206,7 @@
       <section class="hero">
         <p class="eyebrow">中四国連絡協議会組織委員会 presents</p>
         <h1>MISSION<br>ESCAPE</h1>
-        <p>好きなルートを選択してください。まずシナリオを確認し、その後ミッションを開始します。</p>
+        <p>4つのルートから1つを選択してください。ミッションの内容は選択後に明らかになります。</p>
       </section>
       <section class="route-grid">${cards}</section>
       <p class="note" style="margin-top:18px">※ 進行状況はこの端末・このブラウザに保存されます。QR読み取りも同じブラウザで行ってください。</p>`;
